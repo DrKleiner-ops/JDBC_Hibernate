@@ -1,11 +1,13 @@
 package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
+import jm.task.core.jdbc.service.UserServiceImpl;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
@@ -42,14 +44,20 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         Statement statement = Util.getConnection().createStatement();
         ResultSet result = statement.executeQuery(
                 "SELECT * FROM users");
+        List<User> users = new ArrayList<>();
+
         while (result.next()) {
+
             int id = result.getInt("id");
             String name =  result.getString("name");
             String lastName =  result.getString("lastName");
-            String age =  result.getString("age");
-            System.out.println(id + "|" + name + "|" + lastName + "|" + age);
+            byte age =  result.getByte("age");
+            User user = new User(name, lastName, age);
+            assert false;
+            users.add(user);
+            //System.out.println(id + "|" + name + "|" + lastName + "|" + age);
         }
-        return null;
+        return users;
     }
 
     public void cleanUsersTable() throws SQLException {

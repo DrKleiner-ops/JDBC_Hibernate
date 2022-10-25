@@ -7,6 +7,7 @@ import jm.task.core.jdbc.util.Util;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -22,9 +23,15 @@ public class Main {
             userService.saveUser(us.getName(),us.getLastName(),us.getAge());
             System.out.println(us.getName() + " done");
         }
-        userService.getAllUsers();
+        List<User> example =  userService.getAllUsers();
+        for (User us: example) {
+            System.out.println(us.getName()+'|'+us.getLastName()+'|'+us.getAge());
+        }
         userService.removeUserById(3);
-        userService.getAllUsers();
+        List<User> resultUsers = userService.getAllUsers();
+        for (User us: resultUsers) {
+            System.out.println(us.getName()+'|'+us.getLastName()+'|'+us.getAge());
+        }
         userService.cleanUsersTable();
         userService.dropUsersTable();
     }

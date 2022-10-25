@@ -35,8 +35,7 @@ UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
     }
 
     public List<User> getAllUsers() throws SQLException {
-        userDaoJDBC.getAllUsers();
-        return null;
+        return userDaoJDBC.getAllUsers();
     }
 
     public void cleanUsersTable() throws SQLException {
