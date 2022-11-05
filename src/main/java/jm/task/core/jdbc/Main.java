@@ -21,16 +21,16 @@ public class Main {
             userService.saveUser(us.getName(), us.getLastName(), us.getAge());
             System.out.println(us.getName() + " done");
         }
-        List<User> example = userService.getAllUsers();
-        for (User us : example) {
-            System.out.println(us.getName() + '|' + us.getLastName() + '|' + us.getAge());
-        }
-        userService.removeUserById(3);
-        List<User> resultUsers = userService.getAllUsers();
-        for (User us : resultUsers) {
-            System.out.println(us.getName() + '|' + us.getLastName() + '|' + us.getAge());
-        }
-        userService.cleanUsersTable();
-        userService.dropUsersTable();
+//        List<User> example = userService.getAllUsers();
+//        for (User us : example) {
+//            System.out.println(us.getName() + '|' + us.getLastName() + '|' + us.getAge());
+//        }
+//        userService.removeUserById(3);
+//        List<User> resultUsers = userService.getAllUsers();
+//        for (User us : resultUsers) {
+//            System.out.println(us.getName() + '|' + us.getLastName() + '|' + us.getAge());
+//        }
+//        userService.cleanUsersTable();
+//        userService.dropUsersTable();
     }
 }
